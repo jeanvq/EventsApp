@@ -1,59 +1,58 @@
 # EventsApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
+Aplicacion web para gestionar eventos y confirmaciones de asistencia (RSVP), construida con Angular y Angular Material.
 
-## Development server
+## Tecnologias
 
-To start a local development server, run:
+- Angular 21
+- Angular Material
+- TypeScript
+- RxJS
 
-```bash
-ng serve
-```
+## Ejecutar en local
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Instala dependencias:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Levanta el servidor de desarrollo:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+3. Abre en el navegador:
 
-To build the project run:
+```text
+http://localhost:4200
+```
+
+## Pruebas
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Capturas
 
-## Running unit tests
+### Pantalla principal
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+![Pantalla principal](src/screenshots/home.png)
 
-```bash
-ng test
-```
+### Crear evento
 
-## Running end-to-end tests
+![Formulario de creacion de evento](src/screenshots/create-event.png)
 
-For end-to-end (e2e) testing, run:
+### RSVP
 
-```bash
-ng e2e
-```
+![Formulario RSVP](src/screenshots/rsvp.png)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Estructura principal
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `src/app/components/event-list`: listado de eventos
+- `src/app/components/create-event`: formulario de creacion
+- `src/app/components/rsvp-form`: confirmacion de asistencia
+- `src/app/services`: logica de negocio y datos
+- `src/app/models`: modelos TypeScript

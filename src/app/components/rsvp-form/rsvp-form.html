@@ -1,0 +1,102 @@
+<mat-card class="rsvp-card">
+  <mat-card-header>
+    <mat-card-title>RSVP Form</mat-card-title>
+    <mat-card-subtitle>Reserve your spot at the event</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <!-- Success Message -->
+    <div *ngIf="submitted" class="success-box">
+      <mat-icon>check_circle</mat-icon>
+      <h3>Thank you for your RSVP!</h3>
+      <p>We have received your response.</p>
+      <button mat-stroked-button color="primary" (click)="resetForm($event)">Submit Another</button>
+    </div>
+
+    <!-- Form -->
+    <form #rsvpForm="ngForm" (ngSubmit)="onSubmit(rsvpForm)" *ngIf="!submitted">
+
+      <!-- Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Full Name</mat-label>
+        <input matInput
+               name="name"
+               [(ngModel)]="rsvp.name"
+               required
+               minlength="2"
+               #name="ngModel"
+               placeholder="Your full name">
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="name.errors?.['required']">Name is required</mat-error>
+        <mat-error *ngIf="name.errors?.['minlength']">Minimum 2 characters</mat-error>
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput
+               name="email"
+               [(ngModel)]="rsvp.email"
+               required
+               email
+               #email="ngModel"
+               placeholder="your@email.com">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error *ngIf="email.errors?.['required']">Email is required</mat-error>
+        <mat-error *ngIf="email.errors?.['email']">Enter a valid email</mat-error>
+      </mat-form-field>
+
+      <!-- Guests -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Number of Guests</mat-label>
+        <input matInput
+               type="number"
+               name="guests"
+               [(ngModel)]="rsvp.guests"
+               required
+               min="1"
+               max="10"
+               #guests="ngModel">
+        <mat-icon matSuffix>people</mat-icon>
+        <mat-error *ngIf="guests.errors?.['required']">Required</mat-error>
+        <mat-error *ngIf="guests.errors?.['min']">Minimum 1 guest</mat-error>
+        <mat-error *ngIf="guests.errors?.['max']">Maximum 10 guests</mat-error>
+      </mat-form-field>
+
+      <!-- Status -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Attendance Status</mat-label>
+        <mat-select name="status"
+                    [(ngModel)]="rsvp.status"
+                    required
+                    #status="ngModel">
+          <mat-option *ngFor="let option of statusOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="status.errors?.['required']">Please select a status</mat-error>
+      </mat-form-field>
+
+      <!-- Dietary Needs -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Dietary Needs (optional)</mat-label>
+        <textarea matInput
+                  name="dietaryNeeds"
+                  [(ngModel)]="rsvp.dietaryNeeds"
+                  rows="2"
+                  placeholder="Any dietary restrictions?">
+        </textarea>
+      </mat-form-field>
+
+      <!-- Buttons -->
+      <div class="button-row">
+        <button mat-stroked-button type="button" routerLink="/events">Back to Events</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="isSubmitting">
+          {{ isSubmitting ? 'Submitting...' : 'Submit RSVP' }}
+        </button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
