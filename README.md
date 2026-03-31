@@ -1,58 +1,58 @@
 # EventsApp
 
-Aplicacion web para gestionar eventos y confirmaciones de asistencia (RSVP), construida con Angular y Angular Material.
+Web application for managing events and RSVP confirmations, built with Angular and Angular Material.
 
-## Tecnologias
+## Technologies
 
 - Angular 21
 - Angular Material
 - TypeScript
 - RxJS
 
-## Ejecutar en local
+## Run Locally
 
-1. Instala dependencias:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Levanta el servidor de desarrollo:
+2. Start the development server:
 
 ```bash
 npm start
 ```
 
-3. Abre en el navegador:
+3. Open in your browser:
 
 ```text
 http://localhost:4200
 ```
 
-## Pruebas
+## Tests
 
 ```bash
 npm test
 ```
 
-## Capturas
+## Screenshots
 
-### Pantalla principal
+### Home screen
 
-![Pantalla principal](src/screenshots/home.png)
+![Home screen](src/screenshots/home.png)
 
-### Crear evento
+### Create event
 
-![Formulario de creacion de evento](src/screenshots/create-event.png)
+![Create event form](src/screenshots/create-event.png)
 
 ### RSVP
 
-![Formulario RSVP](src/screenshots/rsvp.png)
+![RSVP form](src/screenshots/rsvp.png)
 
-## Estructura principal
+## Main Structure
 
-- `src/app/components/event-list`: listado de eventos
-- `src/app/components/create-event`: formulario de creacion
-- `src/app/components/rsvp-form`: confirmacion de asistencia
-- `src/app/services`: logica de negocio y datos
-- `src/app/models`: modelos TypeScript
+- `src/app/components/event-list`: event listing
+- `src/app/components/create-event`: event creation form
+- `src/app/components/rsvp-form`: RSVP confirmation form
+- `src/app/services`: business logic and data layer
+- `src/app/models`: TypeScript models
