@@ -39,7 +39,7 @@
         <p><mat-icon>location_on</mat-icon> {{ event.location }}</p>
         <p><mat-icon>people</mat-icon> Capacity: {{ event.capacity }}</p>
         <p><mat-icon>person</mat-icon> {{ event.organizer }}</p>
-        <p class="description">{{ event.description }}</p>
+        <p class="description">{{ event.description | truncate:120 }}</p>
       </mat-card-content>
 
       <mat-card-actions>

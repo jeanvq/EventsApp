@@ -8,6 +8,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { EventService } from '../../services/event';
 import { Event } from '../../models/event';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
 
 @Component({
   selector: 'app-event-list',
@@ -19,7 +20,8 @@ import { Event } from '../../models/event';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    TruncatePipe
   ],
   templateUrl: './event-list.html',
 styleUrls: ['./event-list.css']
